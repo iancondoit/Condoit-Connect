@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Partners - Condoit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --hot-black: #0B1215;
+            --dim-grey: #586266;
+            --breaker-grey: #C5CCD3;
+            --neutral-grey: #F2F2F2;
+            --neutral-white: #FAFAFA;
+            --hot-red: #F93535;
+            --bittersweet: #FF5B5B;
+        }
+
+        body {
+            font-family: 'Geist', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--hot-black);
+            background-color: var(--neutral-white);
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--neutral-white);
+            border-bottom: 1px solid var(--breaker-grey);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 28px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dim-grey);
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hot-red);
+        }
+
+        .cta-button {
+            background-color: var(--hot-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--bittersweet);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--neutral-white);
+        }
+
+        .hero-tagline {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--hot-red);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-headline {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--hot-black);
+            margin-bottom: 32px;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero-subhead {
+            font-size: 20px;
+            color: var(--dim-grey);
+            max-width: 700px;
+            margin: 0 auto 48px;
+            line-height: 1.5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: var(--hot-red);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--bittersweet);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--hot-black);
+            padding: 14px 28px;
+            border: 2px solid var(--breaker-grey);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--hot-red);
+            color: var(--hot-red);
+        }
+
+        /* Main Sections */
+        .main-section {
+            padding: 80px 0;
+        }
+
+        .section-grey {
+            background-color: var(--neutral-grey);
+        }
+
+        .section-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .section-reverse .section-content {
+            direction: rtl;
+        }
+
+        .section-reverse .section-text,
+        .section-reverse .section-visual {
+            direction: ltr;
+        }
+
+        .section-text h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--hot-black);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .section-text p {
+            font-size: 18px;
+            color: var(--dim-grey);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .section-visual {
+            background: linear-gradient(135deg, var(--neutral-white) 0%, var(--neutral-grey) 100%);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(11, 18, 21, 0.08);
+        }
+
+        .visual-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .section-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Partner Types Grid */
+        .partner-types-section {
+            padding: 80px 0;
+            background-color: var(--neutral-grey);
+        }
+
+        .partner-types-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .partner-types-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--hot-black);
+            margin-bottom: 16px;
+        }
+
+        .partner-types-header p {
+            font-size: 18px;
+            color: var(--dim-grey);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .partner-types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .partner-type-card {
+            background-color: var(--neutral-white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(11, 18, 21, 0.08);
+        }
+
+        .partner-type-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .partner-type-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--hot-black);
+            margin-bottom: 16px;
+        }
+
+        .partner-type-card p {
+            color: var(--dim-grey);
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .partner-type-card ul {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .partner-type-card ul li {
+            color: var(--dim-grey);
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .partner-type-card ul li:before {
+            content: "✓";
+            color: var(--hot-red);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 80px 0;
+        }
+
+        .benefits-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .benefits-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--hot-black);
+            margin-bottom: 16px;
+        }
+
+        .benefits-header p {
+            font-size: 18px;
+            color: var(--dim-grey);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 32px 16px;
+        }
+
+        .benefit-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .benefit-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--hot-black);
+            margin-bottom: 12px;
+        }
+
+        .benefit-card p {
+            color: var(--dim-grey);
+            line-height: 1.5;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--hot-black);
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: var(--breaker-grey);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .btn-primary {
+            background-color: var(--hot-red);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--hot-black);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: var(--breaker-grey);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--dim-grey);
+            padding-top: 24px;
+            text-align: center;
+            color: var(--breaker-grey);
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-headline {
+                font-size: 36px;
+            }
+
+            .section-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .section-reverse .section-content {
+                direction: ltr;
+            }
+
+            .partner-types-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="condoit_connect_page.html" class="logo">
+                <img src="../Condoit Field Agent/Logos/Condoit_Logotype_Hot_Black.png" alt="Condoit">
+            </a>
+            <ul class="nav-links">
+                <li><a href="condoit_how_it_works_page.html">How It Works</a></li>
+                <li><a href="for_facilities.html">For Facilities</a></li>
+                <li><a href="condoit_contractor_network_page.html">For Contractors</a></li>
+                <li><a href="for_partners.html">For Partners</a></li>
+                <li><a href="condoit_evaluate_portfolio_page.html" class="cta-button">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-tagline">For Partners</div>
+            <h1 class="hero-headline">Help your network digitize faster.</h1>
+            <p class="hero-subhead">Partner with Condoit to connect your customers and contractors to the tools they need to document facilities, stay compliant, and unlock new service opportunities. Expand your value, strengthen relationships, and bring safer, smarter infrastructure to your ecosystem.</p>
+            <div class="hero-buttons">
+                <a href="mailto:partners@condoit.io" class="btn-primary">Become a Partner</a>
+                <a href="#partner-types" class="btn-secondary">See Partnership Types</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section class="main-section">
+        <div class="container">
+            <div class="section-content">
+                <div class="section-text">
+                    <h2>Expand your ecosystem's electrical infrastructure capabilities.</h2>
+                    <p>Your customers face growing pressure to document, maintain, and ensure compliance of their electrical systems. Meanwhile, contractors in your network need access to qualified projects and digital tools to stay competitive.</p>
+                    <p>Condoit bridges this gap, creating value for everyone in your ecosystem while positioning you as the connector that makes it all possible.</p>
+                </div>
+                <div class="section-visual">
+                    <span class="visual-icon">🌐</span>
+                    <div><strong>Ecosystem Growth</strong></div>
+                    <div style="margin-top: 12px; font-size: 16px;">Connect facilities, contractors, and service providers in one platform</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Types -->
+    <section class="partner-types-section" id="partner-types">
+        <div class="container">
+            <div class="partner-types-header">
+                <h2>Partnership Opportunities</h2>
+                <p>We work with organizations across the electrical infrastructure ecosystem to create mutual value and drive industry transformation.</p>
+            </div>
+            <div class="partner-types-grid">
+                <div class="partner-type-card">
+                    <span class="partner-type-icon">⚡</span>
+                    <h3>Electrical Distributors</h3>
+                    <p>Connect your customers to documentation and maintenance services while strengthening contractor relationships in your territory.</p>
+                    <ul>
+                        <li>Provide added value to facility customers</li>
+                        <li>Strengthen contractor partnerships</li>
+                        <li>Drive demand for electrical products</li>
+                        <li>Access to market intelligence</li>
+                    </ul>
+                    <a href="mailto:distributors@condoit.io" class="btn-primary">Partner With Us</a>
+                </div>
+                <div class="partner-type-card">
+                    <span class="partner-type-icon">🏭</span>
+                    <h3>Utility Companies</h3>
+                    <p>Help your commercial and industrial customers improve system reliability, reduce outages, and optimize energy efficiency through better maintenance.</p>
+                    <ul>
+                        <li>Reduce customer outages and service calls</li>
+                        <li>Improve grid reliability</li>
+                        <li>Support customer energy efficiency goals</li>
+                        <li>Strengthen customer relationships</li>
+                    </ul>
+                    <a href="mailto:utilities@condoit.io" class="btn-primary">Partner With Us</a>
+                </div>
+                <div class="partner-type-card">
+                    <span class="partner-type-icon">🛠️</span>
+                    <h3>Trade Organizations</h3>
+                    <p>Provide your members with access to new revenue opportunities and digital tools that help them compete in the modern electrical services market.</p>
+                    <ul>
+                        <li>Member access to qualified projects</li>
+                        <li>Training and certification programs</li>
+                        <li>Industry best practices sharing</li>
+                        <li>Networking and collaboration opportunities</li>
+                    </ul>
+                    <a href="mailto:trade@condoit.io" class="btn-primary">Partner With Us</a>
+                </div>
+                <div class="partner-type-card">
+                    <span class="partner-type-icon">🏢</span>
+                    <h3>Property Management</h3>
+                    <p>Offer your clients comprehensive electrical system management as part of your property services, reducing their operational risk and costs.</p>
+                    <ul>
+                        <li>Expand service offerings to clients</li>
+                        <li>Reduce property electrical risks</li>
+                        <li>Improve tenant satisfaction</li>
+                        <li>Create recurring revenue streams</li>
+                    </ul>
+                    <a href="mailto:property@condoit.io" class="btn-primary">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section section-grey">
+        <div class="container">
+            <div class="benefits-header">
+                <h2>Why Partner with Condoit?</h2>
+                <p>Create win-win relationships that drive growth for everyone in your network.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">💼</span>
+                    <h3>Revenue Opportunities</h3>
+                    <p>Generate new revenue streams through referral programs, co-marketing opportunities, and value-added services.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🤝</span>
+                    <h3>Stronger Relationships</h3>
+                    <p>Become the valuable connector that helps your customers and partners solve real problems and grow their businesses.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">📈</span>
+                    <h3>Market Leadership</h3>
+                    <p>Position yourself at the forefront of digital transformation in electrical infrastructure management.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🛠️</span>
+                    <h3>Technology Access</h3>
+                    <p>Provide your network with access to cutting-edge tools and processes they couldn't access independently.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="main-section section-reverse">
+        <div class="container">
+            <div class="section-content">
+                <div class="section-visual">
+                    <span class="visual-icon">🚀</span>
+                    <div><strong>Partnership Process</strong></div>
+                    <div style="margin-top: 12px; font-size: 16px;">Simple onboarding and ongoing support</div>
+                </div>
+                <div class="section-text">
+                    <h2>Getting started is simple.</h2>
+                    <p>We work with you to understand your network's needs and develop a partnership model that creates value for everyone involved. Our team provides ongoing support to ensure success.</p>
+                    <p>Whether you're looking to offer new services to customers, provide opportunities to contractors, or strengthen your position in the electrical ecosystem, we'll help you achieve your goals.</p>
+                    <div class="section-buttons">
+                        <a href="mailto:partners@condoit.io" class="btn-primary">Start Partnership Discussion</a>
+                        <a href="condoit_how_it_works_page.html" class="btn-secondary">Learn About Our Platform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to grow your ecosystem?</h2>
+            <p>Join forward-thinking organizations that are already partnering with Condoit to transform electrical infrastructure management.</p>
+            <a href="mailto:partners@condoit.io" class="btn-primary">Become a Partner</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="condoit_how_it_works_page.html">How It Works</a></li>
+                        <li><a href="condoit_evaluate_portfolio_page.html">Evaluate Portfolio</a></li>
+                        <li><a href="condoit_contractor_network_page.html">Join Network</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="for_facilities.html">For Facility Owners</a></li>
+                        <li><a href="condoit_contractor_network_page.html">For Contractors</a></li>
+                        <li><a href="for_partners.html">For Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="condoit_connect_page.html">About Condoit</a></li>
+                        <li><a href="mailto:sales@condoit.io">Contact Sales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="mailto:sales@condoit.io">Sales: sales@condoit.io</a></li>
+                        <li><a href="mailto:support@condoit.io">Support: support@condoit.io</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Condoit.io 2025 | All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

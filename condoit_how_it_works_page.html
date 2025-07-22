@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - Condoit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --hot-black: #0B1215;
+            --dim-grey: #586266;
+            --breaker-grey: #C5CCD3;
+            --neutral-grey: #F2F2F2;
+            --neutral-white: #FAFAFA;
+            --hot-red: #F93535;
+            --bittersweet: #FF5B5B;
+        }
+
+        body {
+            font-family: 'Geist', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--hot-black);
+            background-color: var(--neutral-white);
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--neutral-white);
+            border-bottom: 1px solid var(--breaker-grey);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 28px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dim-grey);
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hot-red);
+        }
+
+        .cta-button {
+            background-color: var(--hot-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--bittersweet);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--neutral-white);
+        }
+
+        .hero-headline {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--hot-black);
+            margin-bottom: 32px;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-subhead {
+            font-size: 20px;
+            color: var(--dim-grey);
+            max-width: 800px;
+            margin: 0 auto 48px;
+            line-height: 1.5;
+        }
+
+        /* Process Steps */
+        .process-section {
+            padding: 80px 0;
+        }
+
+        .process-step {
+            margin-bottom: 120px;
+        }
+
+        .process-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .step-number {
+            font-size: 14px;
+            color: var(--hot-red);
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .step-title {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--hot-black);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .step-description {
+            font-size: 18px;
+            color: var(--dim-grey);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .step-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .step-list li {
+            font-size: 16px;
+            color: var(--dim-grey);
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .step-list li:before {
+            content: "•";
+            color: var(--hot-red);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .step-visual {
+            background: linear-gradient(135deg, var(--neutral-grey) 0%, #E8EAED 100%);
+            border-radius: 12px;
+            padding: 60px 40px;
+            text-align: center;
+            color: var(--dim-grey);
+            font-size: 18px;
+            box-shadow: 0 4px 20px rgba(11, 18, 21, 0.08);
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .visual-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .btn-primary {
+            background-color: var(--hot-red);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--bittersweet);
+        }
+
+        /* Alternating layout */
+        .step-reverse .step-content {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .step-reverse .step-content .step-visual {
+            order: -1;
+        }
+
+        /* Special styling for step 2 note */
+        .step-note {
+            background-color: var(--neutral-grey);
+            padding: 24px;
+            border-radius: 8px;
+            margin: 24px 0;
+            border-left: 4px solid var(--hot-red);
+        }
+
+        .step-note-title {
+            font-weight: 600;
+            color: var(--hot-black);
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .step-note-text {
+            color: var(--dim-grey);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--hot-black);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: var(--breaker-grey);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--dim-grey);
+            padding-top: 24px;
+            text-align: center;
+            color: var(--breaker-grey);
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-headline {
+                font-size: 36px;
+            }
+
+            .step-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .step-title {
+                font-size: 32px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+
+            .step-reverse .step-content .step-visual {
+                order: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">
+                <img src="../Condoit Field Agent/Logos/Condoit_Logotype_Hot_Black.png" alt="Condoit">
+            </a>
+            <ul class="nav-links">
+                <li><a href="condoit_how_it_works_page.html">How It Works</a></li>
+                <li><a href="for_facilities.html">For Facilities</a></li>
+                <li><a href="condoit_contractor_network_page.html">For Contractors</a></li>
+                <li><a href="for_partners.html">For Partners</a></li>
+                <li><a href="condoit_evaluate_portfolio_page.html" class="cta-button">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-headline">We simplify how you manage electrical systems.</h1>
+            <p class="hero-subhead">Our platform helps facility owners and contractors evaluate, document, and maintain electrical infrastructure—digitizing records, ensuring compliance, and unlocking long-term cost reduction in the fastest and most efficient way.</p>
+        </div>
+    </section>
+
+    <!-- Process Steps -->
+    <section class="process-section">
+        <div class="container">
+            
+            <!-- Step 1: Portfolio Evaluation -->
+            <div class="process-step">
+                <div class="step-content">
+                    <div class="step-text">
+                        <div class="step-number">Step 1: Portfolio Evaluation</div>
+                        <h2 class="step-title">Get a prioritized report of your entire portfolio—for free.</h2>
+                        <p class="step-description">Upload a simple address list. Condoit will analyze your facilities and return a detailed report showing:</p>
+                        <ul class="step-list">
+                            <li>Equipment quality & risk level</li>
+                            <li>Documentation status</li>
+                            <li>Compliance gaps (70B/70E readiness)</li>
+                            <li>Ease of capture (how quickly each facility can be documented)</li>
+                            <li>Estimated scope of work by site</li>
+                        </ul>
+                        <a href="condoit_evaluate_portfolio_page.html" class="btn-primary">Get Free Portfolio Evaluation</a>
+                    </div>
+                    <div class="step-visual">
+                        <span class="visual-icon">📊</span>
+                        <div><strong>Portfolio Analysis</strong></div>
+                        <div style="margin-top: 12px; font-size: 16px;">Upload addresses, get comprehensive facility reports with risk assessments and compliance status</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Capture & Compliance Study -->
+            <div class="process-step step-reverse">
+                <div class="step-content">
+                    <div class="step-visual">
+                        <span class="visual-icon">🔍</span>
+                        <div><strong>On-Site Documentation</strong></div>
+                        <div style="margin-top: 12px; font-size: 16px;">Real-world data capture, single-line diagram updates, and compliance reviews</div>
+                    </div>
+                    <div class="step-text">
+                        <div class="step-number">Step 2: Capture & Compliance Study</div>
+                        <h2 class="step-title">Turn estimates into action with real-world data.</h2>
+                        <p class="step-description">Add your own building data—or use Condoit to dispatch a contractor for on-site capture. We'll document your electrical system, update your single-line diagram, and perform a compliance review.</p>
+                        <p class="step-description">Your portfolio report will instantly update with verified data, replacing estimates with real insights.</p>
+                        
+                        <div class="step-note">
+                            <div class="step-note-title">Already have a contractor you trust?</div>
+                            <div class="step-note-text">No problem—you can invite them into the Condoit network at no cost. They'll get access to the tools and workflows to capture your data and help you stay compliant.</div>
+                        </div>
+                        
+                        <a href="mailto:sales@condoit.io" class="btn-primary">Request Capture & Compliance Study</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Service Proposals & Contractor Matching -->
+            <div class="process-step">
+                <div class="step-content">
+                    <div class="step-text">
+                        <div class="step-number">Step 3: Service Proposals & Contractor Matching</div>
+                        <h2 class="step-title">Easily collect preventative maintenance proposals.</h2>
+                        <p class="step-description">Once your system is captured, Condoit makes it simple to get competitive proposals from trusted contractors in our network—or from contractors you already work with.</p>
+                        <p class="step-description">List your facility's service needs in the Condoit Marketplace to receive bids for:</p>
+                        <ul class="step-list">
+                            <li>Preventative maintenance contracts</li>
+                            <li>Compliance monitoring and testing</li>
+                            <li>Ongoing system documentation and updates</li>
+                            <li>Emergency and pull-through work</li>
+                        </ul>
+                        <a href="mailto:sales@condoit.io" class="btn-primary">List a Facility for Service Proposals</a>
+                    </div>
+                    <div class="step-visual">
+                        <span class="visual-icon">🤝</span>
+                        <div><strong>Contractor Marketplace</strong></div>
+                        <div style="margin-top: 12px; font-size: 16px;">Connect with trusted contractors for maintenance contracts and compliance services</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Proposal Review & Decision Support -->
+            <div class="process-step step-reverse">
+                <div class="step-content">
+                    <div class="step-visual">
+                        <span class="visual-icon">✅</span>
+                        <div><strong>Decision Support</strong></div>
+                        <div style="margin-top: 12px; font-size: 16px;">Standardized proposals with clear comparisons for confident contractor selection</div>
+                    </div>
+                    <div class="step-text">
+                        <div class="step-number">Step 4: Proposal Review & Decision Support</div>
+                        <h2 class="step-title">Pick the best contractor for your needs—with full transparency.</h2>
+                        <p class="step-description">Condoit standardizes all incoming proposals so you can compare options easily. We levelize costs, services, and scopes side by side, helping you choose the right partner with confidence.</p>
+                        <p class="step-description">No guesswork. No hidden costs. Just clear, actionable comparisons.</p>
+                        <a href="mailto:sales@condoit.io" class="btn-primary">List a Facility for Service Proposals</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Features</h4>
+                    <ul>
+                        <li><a href="#">Single-Line Diagram (SLD)</a></li>
+                        <li><a href="#">Bill-of-Materials (BoM)</a></li>
+                        <li><a href="#">Field Data Collection</a></li>
+                        <li><a href="#">NFPA Compliance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#">For Electricians</a></li>
+                        <li><a href="#">For Engineers</a></li>
+                        <li><a href="#">For Project Managers</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Schedule a Demo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="mailto:sales@condoit.io">Sales: sales@condoit.io</a></li>
+                        <li><a href="mailto:support@condoit.io">Support: support@condoit.io</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Condoit.io 2025 | All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
